@@ -1,0 +1,69 @@
+{% extends "structure.html" %}
+
+{% block main %}
+<div class="form-signin">
+    <form action="/" method="post">
+        <fieldset>
+            <legend>
+                <h1>Details Of New Entry:</h1>
+            </legend>
+            <label>
+                Name:
+                <br/>
+                <input type="text" class="form-control" name="name" size= "30" maxlength="50" value="{{ name_val }}">
+            </label>
+            <br/>
+            <label>
+                Surname:
+                <br/>
+                <input type="text" class="form-control" name="surname" size="30" maxlength="50" value="{{ surname_val }}">
+            </label>
+            <br/>
+            <label>
+                ID Number:
+                <br/>
+                <input type="text" class="form-control" name="id_num" size="30" maxlength="13" value="{{ previous_id }}">
+            </label>
+            <br/>
+            <br/>
+            <label>
+                Date Of Birth:
+                <input type="text" class="form-control" name="date_of_birth" value="{{ previous_date_of_birth }}">
+            </label>
+            <br/>
+            <br/>
+            <div>
+                <label>
+                     <input type="submit" value="submit">
+                </label>
+                <label>
+                    <button type="reset" value="Cancel">Cancel</button>
+                </label>
+            </div>
+            <br/>
+            {{ message | safe }}
+        </fieldset>
+    </form>
+</div>
+
+{% endblock main %}
+
+{% block div %}
+
+        <label><strong style="font-size: x-large">Database</strong></label>
+    <table class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>ID Number</th>
+                <th>Date Of Birth</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{ table_vals | safe }}
+
+        </tbody>
+    </table>
+
+{% endblock div %}
